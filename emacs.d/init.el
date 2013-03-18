@@ -17,8 +17,9 @@
 
 (defvar my-packages '(idle-highlight-mode
                       auto-complete
-		            highlight-indentation
-			          yasnippet
+                      highlight-indentation
+                      yasnippet
+                      rainbow-mode
                       python-mode
                       epc
                       jedi
@@ -27,7 +28,6 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
-
 
 ;; include packages
 
@@ -41,11 +41,20 @@
 ;emacs24 built-in goodies
 (electric-pair-mode t)
 
+;insert spaces instead of tabs if major mode didn't define a default
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+
 ;solarized prereq: set xterm264 in terminal
 (load-theme 'solarized-dark t)
 
 (require 'yasnippet)
 (yas-reload-all)
+
+(require 'rainbow-mode)
+(setq rainbow-html-colors nil) ;don't colorize words like "gray"
+(add-hook 'css-mode-hook 'rainbow-mode)
 
 (defun my-coding-hook ()
   (yas-minor-mode)
@@ -60,6 +69,9 @@
 (require 'highlight-indentation)
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 (add-hook 'js-mode-hook 'highlight-indentation-mode)
+
+;associate less files with css editor
+(add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 
 ;python autocomplete library
 (require 'python-mode) 
@@ -86,14 +98,14 @@
 (setq lazy-highlight-cleanup nil)
 
 ;; port of eclipse move text line/region
-; source: https://groups.google.com/d/msg/gnu.emacs.help/dd2R_UV0LVQ/F06ihLb7hKcJ
+;source: https://groups.google.com/d/msg/gnu.emacs.help/dd2R_UV0LVQ/F06ihLb7hKcJ
 (defun move-text-internal (arg)
   (cond
    ((and mark-active transient-mark-mode)
     (if (> (point) (mark))
-	(exchange-point-and-mark))
+        (exchange-point-and-mark))
     (let ((column (current-column))
-	  (text (delete-and-extract-region (point) (mark))))
+          (text (delete-and-extract-region (point) (mark))))
       (forward-line arg)
       (move-to-column column t)
       (set-mark (point))
@@ -105,18 +117,16 @@
     (when (or (> arg 0) (not (bobp)))
       (forward-line)
       (when (or (< arg 0) (not (eobp)))
-	(transpose-lines arg))
+        (transpose-lines arg))
       (forward-line -1)))))
 
 (defun move-text-down (arg)
-     "Move region (transient-mark-mode active) or current line
-  arg lines down."
+     "Move region (transient-mark-mode active) or current line arg lines down."
      (interactive "*p")
      (move-text-internal arg))
 
 (defun move-text-up (arg)
-     "Move region (transient-mark-mode active) or current line
-  arg lines up."
+     "Move region (transient-mark-mode active) or current line arg lines up."
      (interactive "*p")
      (move-text-internal (- arg)))
 
