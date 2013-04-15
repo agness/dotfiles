@@ -1,0 +1,20 @@
+# contents of $HOME/.ssh/config
+Host sockeye
+    HostName 54.235.122.105
+    IdentityFile ~/.ssh/snufffleupagus.pem
+    User ubuntu
+
+Host quips-nginx
+    HostName 107.22.191.228
+    IdentityFile ~/.ssh/quips_key.pem
+    User ec2-user
+
+Host quips-secondary
+    HostName ec2-107-22-23-228.compute-1.amazonaws.com
+    IdentityFile ~/.ssh/quips_key.pem
+    User ec2-user
+
+Host quips-db
+    HostName ec2-23-20-10-133.compute-1.amazonaws.com
+    IdentityFile ~/.ssh/quips_key.pem
+    User ec2-user

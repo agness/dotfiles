@@ -9,4 +9,6 @@ export PS2="\[\e[0;40m\]> \[\e[0m\]"
 
 export TERM=xterm-256color
 
+export EDITOR=emacs
+    
 cd ~/Desktop
