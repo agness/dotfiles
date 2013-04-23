@@ -30,4 +30,10 @@ Host mongo
     IdentityFile ~/.ssh/bigwheel_key.pem
     User ec2-user
     LocalForward 27017 127.0.0.1:27017
+
+Host nsq
+    HostName ec2-50-19-38-72.compute-1.amazonaws.com
+    IdentityFile ~/.ssh/bigwheel_key.pem
+    User ubuntu
+    LocalForward 4171 127.0.0.1:4171
     
