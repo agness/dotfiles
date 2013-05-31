@@ -1,6 +1,6 @@
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
 
-export PATH=~/Development/android-sdk-macosx/platform-tools:~/Development/android-sdk-macosx/tools:$PATH
+export PATH=~/Development/android-sdk-macosx/platform-tools:~/Development/android-sdk-macosx/tools:/Applications/PlaskLauncher.app/Contents/Resources/Plask.app/Contents/MacOS/:$PATH
 
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
