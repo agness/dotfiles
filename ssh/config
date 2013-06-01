@@ -20,20 +20,12 @@ Host quips-db
     User ec2-user
     LocalForward 9880 127.0.0.1:9880
 
-Host nik-nimbul
+Host okapi
     HostName ec2-184-72-203-12.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
     User ubuntu
 
-Host mongo
-    HostName ec2-54-234-153-100.compute-1.amazonaws.com
+Host inthack
+    HostName ec2-54-224-49-18.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
-    User ec2-user
-    LocalForward 27017 127.0.0.1:27017
-
-Host nsq
-    HostName ec2-50-19-38-72.compute-1.amazonaws.com
-    IdentityFile ~/.ssh/bigwheel_key.pem
-    User ubuntu
-    LocalForward 4171 127.0.0.1:4171
-    
+    User ubuntu    
