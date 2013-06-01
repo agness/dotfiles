@@ -1,6 +1,8 @@
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
 
-export PATH=~/Development/android-sdk-macosx/platform-tools:~/Development/android-sdk-macosx/tools:/Applications/PlaskLauncher.app/Contents/Resources/Plask.app/Contents/MacOS:$PATH
+export PATH=~/Development/android-sdk-macosx/platform-tools:~/Development/android-sdk-macosx/tools:$PATH
+
+export PATH=/Applications/PlaskLauncher.app/Contents/Resources/Plask.app/Contents/MacOS:$PATH
 
 export PATH=/usr/local/share/npm/bin:$PATH
     

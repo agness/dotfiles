@@ -40,6 +40,7 @@
 
 ;emacs24 built-in goodies
 (electric-pair-mode t)
+(show-paren-mode 1)
 
 ;insert spaces instead of tabs if major mode didn't define a default
 (setq-default indent-tabs-mode nil)
