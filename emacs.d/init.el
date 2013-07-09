@@ -7,8 +7,8 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;(when (not package-archive-contents)
+;  (package-refresh-contents))
 
 ;; load packages emacs24 way (bugs!)
 ;(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -21,13 +21,14 @@
                       yasnippet
                       rainbow-mode
                       python-mode
+                      go-mode
                       epc
                       jedi
                       color-theme-solarized))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
-    (package-install p)))
+    (package-refresh-contents) (package-install p)))
 
 ;; include packages
 
@@ -90,6 +91,10 @@
 (setq py-split-windows-on-execute-p nil)
 ;try to automagically figure out indentation
 ;(setq py-smart-indentation t)
+
+;golang
+(require 'go-mode)
+(add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; window aesthetics
 (setq inhibit-startup-screen t)

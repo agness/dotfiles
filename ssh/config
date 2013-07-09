@@ -10,7 +10,7 @@ Host quips-nginx
     User ec2-user
 
 Host quips-secondary
-    HostName ec2-107-22-23-228.compute-1.amazonaws.com
+    HostName ec2-174-129-145-171.compute-1.amazonaws.com
     IdentityFile ~/.ssh/quips_key.pem
     User ec2-user
 
@@ -20,6 +20,10 @@ Host quips-db
     User ec2-user
     LocalForward 9880 127.0.0.1:9880
 
+Host compendium
+    HostName ec2-23-23-124-50.compute-1.amazonaws.com
+    User root
+    
 Host okapi
     HostName ec2-184-72-203-12.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
@@ -28,4 +32,14 @@ Host okapi
 Host inthack
     HostName ec2-54-224-49-18.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
-    User ubuntu    
+    User ubuntu
+
+Host diff_experiments
+    HostName ec2-54-224-106-67.compute-1.amazonaws.com
+    IdentityFile ~/.ssh/bigwheel_key.pem
+    User ubuntu
+
+Host agnes_go_box
+    HostName ec2-54-224-235-108.compute-1.amazonaws.com
+    IdentityFile ~/.ssh/bigwheel_key.pem
+    User ubuntu
