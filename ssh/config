@@ -24,11 +24,16 @@ Host compendium
     HostName ec2-23-23-124-50.compute-1.amazonaws.com
     User root
     
-Host okapi
+Host okapi-old
     HostName ec2-184-72-203-12.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
     User ubuntu
 
+Host okapi
+    HostName ec2-54-234-217-86.compute-1.amazonaws.com
+    IdentityFile ~/.ssh/bigwheel_key.pem
+    User ubuntu
+    
 Host inthack
     HostName ec2-54-224-49-18.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
@@ -39,7 +44,13 @@ Host diff_experiments
     IdentityFile ~/.ssh/bigwheel_key.pem
     User ubuntu
 
-Host agnes_go_box
-    HostName ec2-54-224-235-108.compute-1.amazonaws.com
+Host agnes-go-box
+    HostName ec2-184-72-203-12.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
     User ubuntu
+
+Host minos
+    HostName ec2-54-221-6-19.compute-1.amazonaws.com
+    IdentityFile ~/.ssh/bigwheel_key.pem
+    User ubuntu
+    ForwardAgent yes
