@@ -74,6 +74,7 @@
 
 ;associate less files with css editor
 (add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 
 ;python autocomplete library
 (require 'python-mode) 
