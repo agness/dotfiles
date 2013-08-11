@@ -141,7 +141,7 @@
 (global-set-key (kbd "C-c <down>") 'move-text-down)
 
 ;; move to window spatially
-(global-set-key (kbd "C-h <left>") 'windmove-left)
-(global-set-key (kbd "C-h <right>") 'windmove-right)
-(global-set-key (kbd "C-h <up>") 'windmove-up)
-(global-set-key (kbd "C-h <down>") 'windmove-down)
+(global-set-key (kbd "C-c j") 'windmove-left)
+(global-set-key (kbd "C-c l") 'windmove-right)
+(global-set-key (kbd "C-c i") 'windmove-up)
+(global-set-key (kbd "C-c k") 'windmove-down)
