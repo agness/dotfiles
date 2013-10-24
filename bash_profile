@@ -6,9 +6,11 @@ export PATH=/Applications/PlaskLauncher.app/Contents/Resources/Plask.app/Content
 
 export PATH=/usr/local/share/npm/bin:$PATH
 
+export PGDATA=/usr/local/var/postgres
+
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
+   
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
