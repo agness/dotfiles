@@ -1,0 +1,41 @@
+[user]
+	name = Agnes Chang
+	email = kradeki@gmail.com
+
+[core]
+    editor = emacs
+    autocrlf = input
+    excludesfile = <%= ENV['HOME'] %>/.gitignore
+    
+[color]
+    diff = true
+    status = true
+    branch = true
+    interactive = true
+    ui = true
+
+[alias]
+    st = status -sb
+    di = diff
+    poh = push origin HEAD
+    wdiff = diff --word-diff
+    co = checkout
+    ci = commit
+    br = branch
+    sta = stash
+    sub = submodule
+    pre = pull --rebase
+    lg = log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    tags = tag -l
+
+[merge]
+    tool = opendiff
+
+#[branch]
+#    autosetuprebase = always
+            
+[push]
+	default = simple
+    
+[credential]
+	helper = osxkeychain

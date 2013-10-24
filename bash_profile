@@ -9,6 +9,10 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+    
 export PS1="\[\e[0;36m\]:\W ∮ \[\e[0m\]"
 export PS2="\[\e[0;40m\]> \[\e[0m\]"
 
