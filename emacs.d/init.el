@@ -24,6 +24,12 @@
                       go-mode
                       epc
                       jedi
+                      ruby-mode
+                      ruby-electric
+                      inf-ruby
+;                      ruby-compilation
+                      rinari
+                      rhtml-mode
                       color-theme-solarized))
 
 (dolist (p my-packages)
@@ -76,12 +82,12 @@
 (add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 
-;python autocomplete library
+;; python
 (require 'python-mode) 
+;autocomplete library
 (setq jedi:setup-keys t)
 (add-hook 'python-mode-hook 'jedi:setup)
-
-;ipython pipe
+;repl ipython pipe
 (setq-default py-shell-name "ipython")
 (setq-default py-which-bufname "IPython")
 (setq py-force-py-shell-name-p t)
@@ -93,9 +99,32 @@
 ;try to automagically figure out indentation
 ;(setq py-smart-indentation t)
 
-;golang
+;; golang
 (require 'go-mode)
 (add-hook 'before-save-hook 'gofmt-before-save)
+
+;; ruby/rails
+(require 'ruby-mode)
+;rails
+(require 'rinari)
+(add-hook 'ruby-mode-hook 'rinari-minor-mode)
+;repl
+(require 'inf-ruby)
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+;automatically add 'end' after class, module, etc.; pair braces, quotes, etc.
+(require 'ruby-electric)
+(add-hook 'ruby-mode-hook 'ruby-electric-mode)
+;file associations
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+;enable outlining for ruby
+; (add-hook 'ruby-mode-hook
+;   '(lambda ()
+;     (outline-minor-mode)
+;       (setq outline-regexp " *\\(def \\|class\\|module\\|describe \\|it \\)")))
 
 ;; window aesthetics
 (setq inhibit-startup-screen t)
