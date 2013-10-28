@@ -24,6 +24,7 @@
                       go-mode
                       epc
                       jedi
+                      multi-web-mode
                       ruby-mode
                       ruby-electric
                       inf-ruby
@@ -77,7 +78,18 @@
 (require 'highlight-indentation)
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 (add-hook 'js-mode-hook 'highlight-indentation-mode)
+(add-hook 'web-mode-hook 'highlight-indentation-mode)
 
+;; web mix
+;; (require 'web-mode)
+;; (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(require 'multi-web-mode)
+(setq mweb-default-major-mode 'html-mode)
+(setq mweb-tags
+  '((js-mode  "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
+    (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
+(setq mweb-filename-extensions '("htm" "html"))
+(multi-web-global-mode 1)
 ;associate less files with css editor
 (add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
@@ -108,6 +120,8 @@
 ;rails
 (require 'rinari)
 (add-hook 'ruby-mode-hook 'rinari-minor-mode)
+(require 'rhtml-mode)
+(add-to-list 'auto-mode-alist '("\\.erb$" . rhtml-mode))
 ;repl
 (require 'inf-ruby)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
@@ -115,11 +129,15 @@
 (require 'ruby-electric)
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 ;file associations
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+(add-to-list 'auto-mode-alist
+  '("\\.\\(?:gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist
+  '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 ;enable outlining for ruby
 ; (add-hook 'ruby-mode-hook
 ;   '(lambda ()
