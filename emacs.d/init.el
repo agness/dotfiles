@@ -24,7 +24,7 @@
                       go-mode
                       epc
                       jedi
-                      multi-web-mode
+;                      multi-web-mode
                       ruby-mode
                       ruby-electric
                       inf-ruby
@@ -78,18 +78,18 @@
 (require 'highlight-indentation)
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 (add-hook 'js-mode-hook 'highlight-indentation-mode)
-(add-hook 'web-mode-hook 'highlight-indentation-mode)
+(add-hook 'html-mode-hook 'highlight-indentation-mode)
 
 ;; web mix
 ;; (require 'web-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
-(require 'multi-web-mode)
-(setq mweb-default-major-mode 'html-mode)
-(setq mweb-tags
-  '((js-mode  "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
-    (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
-(setq mweb-filename-extensions '("htm" "html"))
-(multi-web-global-mode 1)
+;; (require 'multi-web-mode)
+;; (setq mweb-default-major-mode 'html-mode)
+;; (setq mweb-tags
+;;   '((js-mode  "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
+;;     (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
+;; (setq mweb-filename-extensions '("htm" "html"))
+;; (multi-web-global-mode 1)
 ;associate less files with css editor
 (add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))

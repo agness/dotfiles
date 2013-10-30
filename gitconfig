@@ -5,7 +5,7 @@
 [core]
     editor = emacs
     autocrlf = input
-    excludesfile = <%= ENV['HOME'] %>/.gitignore
+    excludesfile = ~/.gitignore
     
 [color]
     diff = true
