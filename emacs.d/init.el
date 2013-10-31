@@ -117,6 +117,7 @@
 
 ;; ruby/rails
 (require 'ruby-mode)
+(setq ruby-indent-level 2) ;i guess NP uses 2
 ;rails
 (require 'rinari)
 (add-hook 'ruby-mode-hook 'rinari-minor-mode)
@@ -128,6 +129,12 @@
 ;automatically add 'end' after class, module, etc.; pair braces, quotes, etc.
 (require 'ruby-electric)
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
+;; Missing from ruby-mode.el, see https://groups.google.com/group/emacs-on-rails/msg/565fba8263233c28
+(defun ruby-insert-end ()
+  (interactive)
+  (insert "end")
+  (ruby-indent-line t)
+    (end-of-line))
 ;file associations
 (add-to-list 'auto-mode-alist
   '("\\.\\(?:gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
