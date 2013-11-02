@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 export PATH=~/Development/android-sdk-macosx/platform-tools:~/Development/android-sdk-macosx/tools:$PATH
 
