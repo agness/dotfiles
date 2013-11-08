@@ -18,7 +18,7 @@
     st = status -sb
     di = diff
     poh = push origin HEAD
-    wdiff = diff --word-diff
+    wdf = diff --word-diff
     co = checkout
     ci = commit
     br = branch

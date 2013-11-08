@@ -70,26 +70,19 @@
   (global-set-key (kbd "C-c SPC") 'yas-expand)
   (electric-indent-mode t)
   (global-hl-line-mode 1)
+  (highlight-lines-matching-regexp ".\\{81\\}" 'hi-green-b);'hi-yellow)
   (idle-highlight-mode t))
 (add-hook 'python-mode-hook 'my-coding-hook)
 (add-hook 'js-mode-hook 'my-coding-hook)
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
+(add-hook 'ruby-mode-hook 'my-coding-hook)
 
 (require 'highlight-indentation)
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 (add-hook 'js-mode-hook 'highlight-indentation-mode)
 (add-hook 'html-mode-hook 'highlight-indentation-mode)
+(add-hook 'ruby-mode-hook 'highlight-indentation-mode)
 
-;; web mix
-;; (require 'web-mode)
-;; (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
-;; (require 'multi-web-mode)
-;; (setq mweb-default-major-mode 'html-mode)
-;; (setq mweb-tags
-;;   '((js-mode  "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
-;;     (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
-;; (setq mweb-filename-extensions '("htm" "html"))
-;; (multi-web-global-mode 1)
 ;associate less files with css editor
 (add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
@@ -118,7 +111,6 @@
 ;; ruby/rails
 (require 'ruby-mode)
 (setq ruby-indent-level 2) ;i guess NP uses 2
-;rails
 (require 'rinari)
 (add-hook 'ruby-mode-hook 'rinari-minor-mode)
 (require 'rhtml-mode)
@@ -129,7 +121,8 @@
 ;automatically add 'end' after class, module, etc.; pair braces, quotes, etc.
 (require 'ruby-electric)
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
-;; Missing from ruby-mode.el, see https://groups.google.com/group/emacs-on-rails/msg/565fba8263233c28
+;missing from ruby-mode.el,
+;see https://groups.google.com/group/emacs-on-rails/msg/565fba8263233c28
 (defun ruby-insert-end ()
   (interactive)
   (insert "end")
@@ -137,19 +130,17 @@
     (end-of-line))
 ;file associations
 (add-to-list 'auto-mode-alist
-  '("\\.\\(?:gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
+  '("\\.\\(?:gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" .
+    ruby-mode))
 (add-to-list 'auto-mode-alist
-  '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
-;; (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-;; (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-;; (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-;; (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-;; (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
-;enable outlining for ruby
-; (add-hook 'ruby-mode-hook
-;   '(lambda ()
-;     (outline-minor-mode)
-;       (setq outline-regexp " *\\(def \\|class\\|module\\|describe \\|it \\)")))
+  '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" .
+    ruby-mode))
+;make ruby-electric play nice with autopair
+(add-hook 'ruby-mode-hook '(lambda ()
+  (substitute-key-definition 'ruby-electric-curlies nil ruby-mode-map)
+  (substitute-key-definition 'ruby-electric-matching-char nil ruby-mode-map)
+  (substitute-key-definition 'ruby-electric-close-matching-char nil ruby-mode-map)))
+
 
 ;; window aesthetics
 (setq inhibit-startup-screen t)
@@ -166,7 +157,7 @@
     (if (> (point) (mark))
         (exchange-point-and-mark))
     (let ((column (current-column))
-          (text (delete-and-extract-region (point) (mark))))
+        (text (delete-and-extract-region (point) (mark))))
       (forward-line arg)
       (move-to-column column t)
       (set-mark (point))
