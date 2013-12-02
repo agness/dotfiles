@@ -53,17 +53,23 @@
 ;insert spaces instead of tabs if major mode didn't define a default
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+;i.e. insert a tab, then change tabs to spaces
 (setq indent-line-function 'insert-tab)
 
 ;solarized prereq: set xterm264 in terminal
 (load-theme 'solarized-dark t)
 
+;centralized backup files
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+;  kept-new-versions 2    ; how many of the newest versions to keep (default 2)
+;  kept-old-versions 2    ; and how many of the old (default 2)
+)
+
 (require 'yasnippet)
 (yas-reload-all)
-
-(require 'rainbow-mode)
-(setq rainbow-html-colors nil) ;don't colorize words like "gray"
-(add-hook 'css-mode-hook 'rainbow-mode)
 
 (defun my-coding-hook ()
   (yas-minor-mode)
@@ -83,12 +89,20 @@
 (add-hook 'html-mode-hook 'highlight-indentation-mode)
 (add-hook 'ruby-mode-hook 'highlight-indentation-mode)
 
+;; js/css
+(require 'rainbow-mode)
+(setq rainbow-html-colors nil) ;don't colorize words like "gray"
+(add-hook 'css-mode-hook 'rainbow-mode)
 ;associate less files with css editor
 (add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
+;follow new products indent conventions
+(setq js-indent-level 2)
+(setq css-indent-offset 2)
 
 ;; python
-(require 'python-mode) 
+(require 'python-mode)
+(setq-default python-indent 4)
 ;autocomplete library
 (setq jedi:setup-keys t)
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -110,7 +124,7 @@
 
 ;; ruby/rails
 (require 'ruby-mode)
-(setq ruby-indent-level 2) ;i guess NP uses 2
+(setq ruby-indent-level 2) ;i guess new products uses 2
 (require 'rinari)
 (add-hook 'ruby-mode-hook 'rinari-minor-mode)
 (require 'rhtml-mode)
@@ -141,7 +155,6 @@
   (substitute-key-definition 'ruby-electric-matching-char nil ruby-mode-map)
   (substitute-key-definition 'ruby-electric-close-matching-char nil ruby-mode-map)))
 
-
 ;; window aesthetics
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
@@ -171,17 +184,14 @@
       (when (or (< arg 0) (not (eobp)))
         (transpose-lines arg))
       (forward-line -1)))))
-
 (defun move-text-down (arg)
      "Move region (transient-mark-mode active) or current line arg lines down."
      (interactive "*p")
      (move-text-internal arg))
-
 (defun move-text-up (arg)
      "Move region (transient-mark-mode active) or current line arg lines up."
      (interactive "*p")
      (move-text-internal (- arg)))
-
 (global-set-key (kbd "C-c <up>") 'move-text-up)
 (global-set-key (kbd "C-c <down>") 'move-text-down)
 
