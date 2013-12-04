@@ -56,6 +56,9 @@
 ;i.e. insert a tab, then change tabs to spaces
 (setq indent-line-function 'insert-tab)
 
+;require final newline so github stops complaining once and for all
+(setq require-final-newline t)
+
 ;solarized prereq: set xterm264 in terminal
 (load-theme 'solarized-dark t)
 
