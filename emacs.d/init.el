@@ -59,6 +59,9 @@
 ;require final newline so github stops complaining once and for all
 (setq require-final-newline t)
 
+;show column position in addition to default line position
+(setq column-number-mode t)
+
 ;solarized prereq: set xterm264 in terminal
 (load-theme 'solarized-dark t)
 

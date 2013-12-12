@@ -4,21 +4,10 @@ Host sockeye
     IdentityFile ~/.ssh/snufffleupagus.pem
     User ubuntu
 
-Host quips-nginx
+Host quips
     HostName 107.22.191.228
     IdentityFile ~/.ssh/quips_key.pem
     User ec2-user
-
-Host quips-secondary
-    HostName ec2-174-129-145-171.compute-1.amazonaws.com
-    IdentityFile ~/.ssh/quips_key.pem
-    User ec2-user
-
-Host quips-db
-    HostName ec2-23-20-10-133.compute-1.amazonaws.com
-    IdentityFile ~/.ssh/quips_key.pem
-    User ec2-user
-    LocalForward 9880 127.0.0.1:9880
 
 Host compendium
     HostName ec2-23-23-124-50.compute-1.amazonaws.com
@@ -41,11 +30,6 @@ Host inthack
 
 Host diff_experiments
     HostName ec2-54-224-106-67.compute-1.amazonaws.com
-    IdentityFile ~/.ssh/bigwheel_key.pem
-    User ubuntu
-
-Host agnes-go-box
-    HostName ec2-184-72-203-12.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
     User ubuntu
 

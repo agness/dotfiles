@@ -5,3 +5,4 @@
 emacs.d/*
 !emacs.d/init.el
 .rbenv-vars
+*.pyc
