@@ -56,6 +56,9 @@
 ;i.e. insert a tab, then change tabs to spaces
 (setq indent-line-function 'insert-tab)
 
+; delete trailing whitespace on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;require final newline so github stops complaining once and for all
 (setq require-final-newline t)
 
@@ -82,12 +85,22 @@
   (global-set-key (kbd "C-c SPC") 'yas-expand)
   (electric-indent-mode t)
   (global-hl-line-mode 1)
-  (highlight-lines-matching-regexp ".\\{81\\}" 'hi-green-b);'hi-yellow)
   (idle-highlight-mode t))
 (add-hook 'python-mode-hook 'my-coding-hook)
 (add-hook 'js-mode-hook 'my-coding-hook)
 (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
 (add-hook 'ruby-mode-hook 'my-coding-hook)
+
+; auto wrap lines > 80 characters, else make big ugly green highlight
+(defun eighty-char-hook ()
+  (auto-fill-mode t)
+  (set-fill-column 80)
+  (highlight-lines-matching-regexp ".\\{81\\}" 'hi-green-b))
+(add-hook 'python-mode-hook 'eighty-char-hook)
+(add-hook 'js-mode-hook 'eighty-char-hook)
+(add-hook 'emacs-lisp-mode-hook 'eighty-char-hook)
+(add-hook 'ruby-mode-hook 'eighty-char-hook)
+(add-hook 'go-mode-hook 'eighty-char-hook)
 
 (require 'highlight-indentation)
 (add-hook 'python-mode-hook 'highlight-indentation-mode)

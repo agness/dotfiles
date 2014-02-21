@@ -1,4 +1,8 @@
 # contents of $HOME/.ssh/config
+Host nytcooking-stg
+    Hostname ec2-54-196-127-228.compute-1.amazonaws.com
+    User ubuntu
+
 Host sockeye
     HostName 54.235.122.105
     IdentityFile ~/.ssh/snufffleupagus.pem
@@ -12,7 +16,7 @@ Host quips
 Host compendium
     HostName ec2-23-23-124-50.compute-1.amazonaws.com
     User root
-    
+
 Host okapi-old
     HostName ec2-184-72-203-12.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
@@ -22,7 +26,7 @@ Host okapi
     HostName ec2-54-234-217-86.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
     User ubuntu
-    
+
 Host inthack
     HostName ec2-54-224-49-18.compute-1.amazonaws.com
     IdentityFile ~/.ssh/bigwheel_key.pem
@@ -40,7 +44,7 @@ Host bigwheel2
 #    ForwardAgent yes
 #    LocalForward 8080 127.0.0.1:8080
 #    LocalForward 8888 127.0.0.1:8888
-#    LocalForward 4171 127.0.0.1:4171    
+#    LocalForward 4171 127.0.0.1:4171
 
 Host minos
     HostName ec2-54-221-6-19.compute-1.amazonaws.com
