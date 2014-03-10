@@ -6,7 +6,7 @@
     editor = emacs
     autocrlf = input
     excludesfile = ~/.gitignore
-    
+
 [color]
     diff = true
     status = true
@@ -27,15 +27,17 @@
     pre = pull --rebase
     lg = log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     tags = tag -l
+    prlocal = !sh -c 'git branch --merged | grep -v "^*" | xargs git branch -d'
+    prorigin = remote prune origin
 
 [merge]
     tool = opendiff
 
 #[branch]
 #    autosetuprebase = always
-            
+
 [push]
 	default = simple
-    
+
 [credential]
 	helper = osxkeychain
