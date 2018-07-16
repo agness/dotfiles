@@ -1,36 +1,27 @@
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=~/.composer/vendor/bin/:$PATH
 
-export PATH=~/Development/android-sdk-macosx/platform-tools:~/Development/android-sdk-macosx/tools:$PATH
-
-export PATH=/Applications/PlaskLauncher.app/Contents/Resources/Plask.app/Contents/MacOS:$PATH
-
-export PATH=/usr/local/share/npm/bin:$PATH
-
-export PGDATA=/usr/local/var/postgres
-
-export GOROOT=$HOME/go
-export GOPATH=$HOME/gocode:~/Desktop/adam-cook/web
-export PATH=$PATH:$GOROOT/bin
-
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
 fi
 
 export PS1="\[\e[0;36m\]:\W ∮ \[\e[0m\]"
 export PS2="\[\e[0;40m\]> \[\e[0m\]"
-
-export TERM=xterm-256color
-
+export TERM=xterm # 256color clashes if iterm2 using solarized preset
 export EDITOR=emacs
 
-cd ~/Desktop
-
-alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias es_start="elasticsearch -f -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
+cd ~/Documents
 alias e="emacs"
+alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
 
-eval "$(rbenv init -)"
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# Project-specific aliases
+alias source_tensorflow="cd ~/tensorflow; source ./bin/activate; cd ~/Documents/greeneyl_allatonce/"
+alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias cd_ppl="cd /Users/agneschang/Documents/of_v0.10.0_osx_release/apps/pplpicture_may17"

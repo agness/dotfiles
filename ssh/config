@@ -1,0 +1,9 @@
+Host snuffleupagus
+  HostName xx.xx.xx.xx
+  User     ec2-user
+  IdentityFile ~/.ssh/snufffleupagus.pem
+
+Host greeneyl-dos
+  HostName ec2-xx-xx-xx-xx.us-east-2.compute.amazonaws.com
+  User     ubuntu
+  IdentityFile ~/.ssh/agnesgreeneylapr2018.pem
