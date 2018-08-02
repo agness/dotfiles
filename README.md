@@ -6,9 +6,9 @@ Installation
 ------------
 
 ``` bash
-git clone git://github.com/kradeki/dotfiles ~/dotfiles
-cd ~/dotfiles
-./makesymlinks.sh
+$ git clone git://github.com/kradeki/dotfiles ~/dotfiles
+$ cd ~/dotfiles
+$ sh setup.sh
 ```
 
 Emacs
