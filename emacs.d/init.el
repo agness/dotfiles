@@ -4,7 +4,7 @@
 (setq package-list '(
 ;                     ein ;ipython
 ;                     auctex-latexmk
-                     color-theme-solarized
+;                     color-theme-solarized
                      ))
 (package-initialize)
 
@@ -29,10 +29,12 @@
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
+; editor aesthetics
 (electric-pair-mode t)
 (show-paren-mode 1)
+(setq column-number-mode t) ; show col position
 (setq visible-bell t)
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode t)
 (setq-default tab-width 2)
 
 ; delete trailing whitespace on save
@@ -40,9 +42,6 @@
 
 ; require final newline so github stops complaining once and for all
 (setq require-final-newline t)
-
-; show column position in addition to default line position
-(setq column-number-mode t)
 
 ; auto wrap lines > 80 characters, else make big ugly green highlight
 (defun eighty-char-hook ()
@@ -52,14 +51,35 @@
 (add-hook 'prog-mode-hook 'eighty-char-hook)
 
 ; use solarized color scheme
-(load-theme 'solarized t)
-(setq frame-background-mode 'dark)
+; (load-theme 'solarized t)
+; (setq frame-background-mode 'dark)
 
 ; window aesthetics
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
 (setq fill-column 80)
 (setq lazy-highlight-cleanup nil)
+
+; ergoemacs
+(global-set-key (kbd "C-z") 'undo) ; ctrl-z
+(global-set-key (kbd "C-Z") 'redo) ; ctrl-shift-z
+(global-set-key (kbd "<f2>") 'xah-cut-line-or-region)
+(global-set-key (kbd "<f3>") 'xah-copy-line-or-region)
+(global-set-key (kbd "<f4>") 'yank)       ; paste
+(global-set-key (kbd "<C-f4>") 'yank-pop) ; paste previous
+(global-set-key (kbd "<f5>") 'undo)
+(global-set-key (kbd "<C-f5>") 'redo)
+;; cursor movement with right hand home-row
+(global-set-key (kbd "M-i") 'previous-line)
+(global-set-key (kbd "M-j") 'backward-char)
+(global-set-key (kbd "M-k") 'next-line)
+(global-set-key (kbd "M-l") 'forward-char)
+(global-set-key (kbd "M-u") 'backward-word)
+(global-set-key (kbd "M-o") 'forward-word)
+(global-set-key (kbd "M-SPC") 'set-mark-command)
+;; map M-x to menu/application key
+(define-key key-translation-map (kbd "C-p") (kbd "<menu>")) ; is C-p on mac
+(global-set-key (kbd "<menu>") 'execute-extended-command)
 
 ; port of eclipse move text line/region
 ; source: https://groups.google.com/d/msg/gnu.emacs.help/dd2R_UV0LVQ/F06ihLb7hKcJ
