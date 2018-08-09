@@ -1,11 +1,11 @@
 #!/bin/bash
 
-## This script creates symlinks from the home directory for each dotfile in ~/dotfiles
+## This script creates symlinks or copies
 
 DIR=~/dotfiles
 OLD_DIR=~/dotfiles.old #backup
-LN_FILES="emacs.d/init.el ssh/id_rsa.pub gitignore gitconfig"
-CP_FILES="ssh/config bash_profile"
+LN_FILES="emacs.d/init.el gitignore"
+CP_FILES="ssh/config bash_profile gitconfig"
 
 echo -n "Creating $OLD_DIR backup of any existing dotfiles in home directory ... "
 mkdir -p $OLD_DIR
