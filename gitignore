@@ -38,3 +38,9 @@
 ehthumbs.db
 Thumbs.db
 *.*~
+
+# Jekyll/Ruby #
+###############
+_site
+Gemfile.lock
+.sass-cache/
