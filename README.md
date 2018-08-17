@@ -10,6 +10,7 @@ $ git clone git://github.com/kradeki/dotfiles ~/dotfiles
 $ cd ~/dotfiles
 $ sh setup.sh
 $ git config --global core.excludesfile ~/.gitignore
+# brew install bash-completion
 ```
 
 Emacs

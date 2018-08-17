@@ -34,8 +34,9 @@
 (show-paren-mode 1)
 (setq column-number-mode t) ; show col position
 (setq visible-bell t)
-(setq-default indent-tabs-mode t)
+(setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
+(setq indent-line-function 'insert-tab)
 
 ; delete trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
