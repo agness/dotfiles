@@ -9,7 +9,8 @@ export EDITOR=emacs
 
 cd ~/Documents
 alias e="emacs"
-alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias a="atom" # after Atom > Install Shell Commands
+alias ia="open $1 -a /Applications/iA\ Writer.app"
 alias bjekyll="bundle exec jekyll serve"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
