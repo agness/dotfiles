@@ -18,6 +18,7 @@
   dw = diff --color-words
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   ls = log --stat --decorate
+	ru  = remote update
   st = status -sb
   poh = push origin HEAD
   wdf = diff --word-diff
