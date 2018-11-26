@@ -12,6 +12,8 @@ alias e="emacs"
 alias a="atom" # after Atom > Install Shell Commands
 alias ia="open $1 -a /Applications/iA\ Writer.app"
 alias bjekyll="bundle exec jekyll serve"
+alias bgrunt="bundle exec grunt"
+alias pyserve="python -m http.server"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
