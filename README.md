@@ -18,4 +18,16 @@ Emacs
 Check `user-init-file` variable contents with `C-h v`
 
   *  Expect OS X file to be `~/.emacs.d/init.el`
-  *  Expect Ubunto file to be `~/.emacs`
+  *  Expect Ubuntu file to be `~/.emacs`
+
+Atom
+------------
+Install packages from list
+``` bash
+apm install --packages-file ~/.atom/package.list
+```
+
+Track installed packages
+``` bash
+apm list --installed --bare > ~/.atom/package.list
+```
