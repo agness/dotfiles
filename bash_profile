@@ -13,6 +13,8 @@ alias a="atom" # after Atom > Install Shell Commands
 alias ia="open $1 -a /Applications/iA\ Writer.app"
 alias bjekyll="bundle exec jekyll serve"
 alias bgrunt="bundle exec grunt"
+alias breflow="bundle exec jekyll reflowaml"
+alias storysetup="gem install bundler && bundler install && npm install"
 alias pyserve="python -m http.server"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -27,3 +29,5 @@ export PATH
 alias source_tensorflow="cd ~/tensorflow; source ./bin/activate; cd ~/Documents/greeneyl_allatonce/"
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias cd_ppl="cd /Users/agneschang/Documents/of_v0.10.0_osx_release/apps/pplpicture_may17"
+
+
