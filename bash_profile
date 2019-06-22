@@ -14,8 +14,9 @@ alias ia="open $1 -a /Applications/iA\ Writer.app"
 alias bjekyll="bundle exec jekyll serve"
 alias bgrunt="bundle exec grunt"
 alias breflow="bundle exec jekyll reflowaml"
-alias storysetup="gem install bundler && bundler install && npm install"
+alias binstall="bundle install && npm install"
 alias pyserve="python -m http.server"
+alias py="python"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
