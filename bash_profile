@@ -1,3 +1,4 @@
+
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
@@ -14,8 +15,9 @@ alias ia="open $1 -a /Applications/iA\ Writer.app"
 alias bjekyll="bundle exec jekyll serve"
 alias bgrunt="bundle exec grunt"
 alias breflow="bundle exec jekyll reflowaml"
-alias storysetup="gem install bundler && bundler install && npm install"
+alias storysetup="gem install bundler --version '2.0.2' && bundler install && npm install"
 alias pyserve="python -m http.server"
+alias gitpruneuntracked="git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
@@ -28,6 +30,3 @@ export PATH
 # Project-specific aliases
 alias source_tensorflow="cd ~/tensorflow; source ./bin/activate; cd ~/Documents/greeneyl_allatonce/"
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias cd_ppl="cd /Users/agneschang/Documents/of_v0.10.0_osx_release/apps/pplpicture_may17"
-
-

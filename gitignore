@@ -1,5 +1,8 @@
 # Copied 02/13/2018 from https://gist.githubusercontent.com/octocat/9257657/raw/3f9569e65df83a7b328b39a091f0ce9c6efc6429/.gitignore
 
+# Added by Agnes
+.ipynb_checkpoints/
+
 # Compiled source #
 ###################
 *.com
@@ -44,3 +47,4 @@ Thumbs.db
 _site
 Gemfile.lock
 .sass-cache/
+.bundle
