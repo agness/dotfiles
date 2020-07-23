@@ -3,6 +3,17 @@
 # Added by Agnes
 .ipynb_checkpoints/
 
+# Emacs #
+#########
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
 # Compiled source #
 ###################
 *.com
