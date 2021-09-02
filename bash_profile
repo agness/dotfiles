@@ -12,14 +12,17 @@ cd ~/Documents
 alias e="emacs"
 alias a="atom" # after Atom > Install Shell Commands
 alias ia="open $1 -a /Applications/iA\ Writer.app"
-alias bjekyll="bundle exec jekyll serve"
-alias bgrunt="bundle exec grunt"
+alias bjekyll="bundle exec jekyll serve" #cu_viz
+alias bgrunt="bundle exec grunt" #pp
 alias breflow="bundle exec jekyll reflowaml"
 alias pyserve="python -m http.server"
-alias gitpruneuntracked="git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
+alias jsserve="http-server -p 8000"
+alias py="python"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
