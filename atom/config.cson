@@ -11,6 +11,7 @@
     showInvisibles: true
   "exception-reporting":
     userId: "0881a08f-849a-46c0-b2e6-fe7b34bc741d"
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
