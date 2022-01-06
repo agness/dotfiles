@@ -1,15 +1,15 @@
+eval "$(/opt/homebrew/bin/brew shellenv)" # for MBP M1
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+PROMPT='%F{cyan}:%1~ ∮ %F{default}'
+# deprecated bash prompt
+#export PS1="\[\e[0;36m\]:\W ∮ \[\e[0m\]"
+#export PS2="\[\e[0;40m\]> \[\e[0m\]"
 
-export PS1="\[\e[0;36m\]:\W ∮ \[\e[0m\]"
-export PS2="\[\e[0;40m\]> \[\e[0m\]"
-export TERM=xterm # 256color clashes if iterm2 using solarized preset
+export TERM=xterm # 256color looks like eggplant mush if iterm2 solarized
 export EDITOR=emacs
 
 cd ~/Documents
-alias e="emacs"
+alias e="emacs -nw"
 alias a="atom" # after Atom > Install Shell Commands
 alias ia="open $1 -a /Applications/iA\ Writer.app"
 alias bjekyll="bundle exec jekyll serve" #cu_viz
@@ -24,16 +24,14 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
-# Setting PATH for Python 3.6
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
-
 # for compilers to find zlib
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
 
 # Project-specific aliases
-alias source_tensorflow="cd ~/tensorflow; source ./bin/activate; cd ~/Documents/greeneyl_allatonce/"
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias cd_seas="cd /Users/agneschang/Documents/columbiaviz.github.io"
+
+# load nvm + nvm bash comp
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

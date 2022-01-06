@@ -1,8 +1,7 @@
-atom-beautify@0.33.0
-atomic-emacs@0.12.1
-editorconfig@2.2.2
-highlight-bad-chars@1.2.0
-highlight-selected@0.14.0
+atom-beautify@0.33.4
+atomic-emacs@0.15.0
+editorconfig@2.6.1
+highlight-bad-chars@2.0.0
+highlight-selected@0.17.0
 language-liquid@0.7.0
-pigments@0.40.2
-
+pigments@0.40.6

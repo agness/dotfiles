@@ -5,7 +5,7 @@
 DIR=~/dotfiles
 OLD_DIR=~/dotfiles.old #backup
 LN_FILES="emacs.d/init.el gitignore atom/config.cson atom/package.list"
-CP_FILES="ssh/config bash_profile gitconfig"
+CP_FILES="ssh/config zshrc gitconfig"
 
 echo -n "Creating $OLD_DIR backup of any existing dotfiles in home directory ... "
 mkdir -p $OLD_DIR
