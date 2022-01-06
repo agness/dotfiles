@@ -27,7 +27,7 @@ Install packages from list
 apm install --packages-file ~/.atom/package.list
 ```
 
-Track installed packages
+Export installed packages to version control
 ``` bash
 apm list --installed --bare > ~/.atom/package.list
 ```
