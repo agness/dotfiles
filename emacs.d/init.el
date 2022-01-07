@@ -83,15 +83,6 @@
 (define-key key-translation-map (kbd "C-p") (kbd "<menu>")) ; is C-p on mac
 ;(global-set-key (kbd "<menu>") 'execute-extended-command) ; see helm
 
-; helm configuration
-(require 'helm-config)
-(helm-mode 1)
-; use helm for kill ring
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-; use helm for searching commands
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "<menu>") 'helm-M-x)
-
 ; port of eclipse move text line/region
 ; source: https://groups.google.com/d/msg/gnu.emacs.help/dd2R_UV0LVQ/F06ihLb7hKcJ
 (defun move-text-internal (arg)

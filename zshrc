@@ -6,7 +6,7 @@ PROMPT='%F{cyan}:%1~ ∮ %F{default}'
 #export PS2="\[\e[0;40m\]> \[\e[0m\]"
 
 export TERM=xterm # 256color looks like eggplant mush if iterm2 solarized
-export EDITOR=emacs
+export EDITOR="emacs -nw"
 
 cd ~/Documents
 alias e="emacs -nw"
