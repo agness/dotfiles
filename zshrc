@@ -18,20 +18,22 @@ alias breflow="bundle exec jekyll reflowaml"
 alias pyserve="python -m http.server"
 alias jsserve="http-server -p 8000"
 alias py="python"
+alias pr="preview"
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+eval "$(rbenv init - zsh)"
 
 # for compilers to find zlib
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
 
-# Project-specific aliases
-alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-
 # load nvm + nvm bash comp
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Project-specific aliases
+alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias cd_pr="cd ~/Development/preview"
