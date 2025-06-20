@@ -12,23 +12,34 @@ cd ~/Documents
 alias e="emacs -nw"
 alias g="git"
 alias c="code" # visstudio
+alias o="open"
 alias ia="open $1 -a /Applications/iA\ Writer.app"
-alias bjekyll="bundle exec jekyll serve" #cu_viz
-alias bgrunt="bundle exec grunt" #pp
-alias breflow="bundle exec jekyll reflowaml"
 alias pyserve="python3 -m http.server"
 alias jsserve="http-server -p 8000"
-alias py="python"
-alias pr="preview"
-alias prpu="git push && preview sync"
-alias prall="git push && preview sync && preview publish"
-alias br="npm run dev"
-alias brup="npm install && br"
-alias brsync="npm run sync"
-alias brgo="npm run go"
-alias brscoop="npm run pub"
-alias brpromo="npm run promos"
+alias py="python3"
+alias pyramidshader="Java -jar /Applications/PyramidShader.jar"
 
+# birdkit shortcuts
+bb()
+{
+    # pnpm/npm-agnostic commanding
+    if [ -e "pnpm-lock.yaml" ];
+    then
+        pnpm "$@"
+    else
+        npm "$@"
+    fi
+}
+alias br="bb run dev"
+alias brnew="bb create birdkit"
+alias brup="bb install && br"
+alias brsync="bb run sync --no-git"
+alias brgo="bb run go"
+alias brpub="bb run pub"
+alias brpromo="bb run promos"
+alias brpage="bb run page"
+
+# python paths
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"

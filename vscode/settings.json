@@ -1,0 +1,16 @@
+{
+    "window.zoomLevel": 2,
+    "svelte.enable-ts-plugin": true,
+    "window.commandCenter": false,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        80
+    ],
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    "editor.stickyScroll.enabled": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.startupEditor": "none"
+}
