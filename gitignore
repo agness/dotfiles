@@ -2,6 +2,8 @@
 
 # Added by Agnes
 .ipynb_checkpoints/
+Adobe After Effects Auto-Save/
+*.aep_AME/
 
 # Emacs #
 #########
