@@ -7,6 +7,8 @@ alias e="emacs -nw"
 alias g="git"
 alias c="code" # visstudio
 alias o="open"
+alias cx="codex"
+alias ce="claude"
 ia() {
     open "$1" -a "/Applications/iA Writer.app"
 }

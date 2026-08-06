@@ -1,0 +1,13 @@
+{
+  "env": {
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
+  },
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "/usr/local/bin/default-distributed-budget-statusline.sh",
+    "refreshInterval": 300
+  },
+  "theme": "dark",
+  "preferredNotifChannel": "terminal_bell"
+}
