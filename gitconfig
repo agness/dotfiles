@@ -1,10 +1,10 @@
 [user]
 	name = Agnes Chang
-	email = kradeki@gmail.com
+	email = agness@fastmail.com
 
 [core]
   editor = emacs -nw
-	excludesfile = /Users/agneschang/.gitignore
+	excludesfile = ~/.gitignore
 
 [color]
   ui = true
@@ -18,13 +18,12 @@
   dw = diff --color-words
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   ls = log --stat --decorate
-	ru  = remote update
+	ru = remote update
   st = status -sb
   poh = push origin HEAD
   wdf = diff --word-diff
   prlocal = !sh -c 'git branch --merged | grep -v "^*" | xargs git branch -d'
   prorigin = remote prune origin
-	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f

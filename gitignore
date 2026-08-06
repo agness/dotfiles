@@ -4,9 +4,18 @@
 .ipynb_checkpoints/
 Adobe After Effects Auto-Save/
 *.aep_AME/
+*.aep Logs/
+.env
+.env.*
+!.env.example
+node_modules
+/build
+/.svelte-kit
+vite.config.*.*.mjs
+.Rproj.user
+.Rhistory
 
 # Emacs #
-#########
 *~
 \#*\#
 /.emacs.desktop
@@ -17,7 +26,6 @@ tramp
 .\#*
 
 # Compiled source #
-###################
 *.com
 *.class
 *.dll
@@ -25,10 +33,7 @@ tramp
 *.o
 *.so
 
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
+# Compressed files #
 *.7z
 *.dmg
 *.gz
@@ -39,13 +44,11 @@ tramp
 *.zip
 
 # Logs and databases #
-######################
 *.log
 *.sql
 *.sqlite
 
 # OS generated files #
-######################
 .DS_Store
 .DS_Store?
 ._*
@@ -56,7 +59,6 @@ Thumbs.db
 *.*~
 
 # Jekyll/Ruby #
-###############
 _site
 Gemfile.lock
 .sass-cache/
